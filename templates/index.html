@@ -1,0 +1,49 @@
+  
+{% extends "base.html" %}
+
+  {% block content %}
+
+
+<div class="container">
+{% if errtext %}
+    <div class="alert alert-warning" role="alert">
+        <center> {{ errtext }} </center>
+    </div>
+{% endif %}
+{% if (image_list) and image_list|length > 1 %}
+
+    {% for img_row in image_list | batch(2) %}
+        <div class="row equal">
+        {% for img in img_row %}
+            <div class = "col-sm-6">
+                <div class="card">
+                  <img class="card-img-top" src={{ img[2] }} alt= "card number: {{ img[0] }} text: {{ img[1] }}">
+                  <div class="card-body">
+                    <p class="card-text">{{ img[0] }}:  {{ img[1] }}</p>
+                  </div>
+                </div>
+            <p></p>
+
+            </div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+{% elif (image_list) and image_list|length == 1 %}
+        <div class = "row equal">
+        <center>
+            <div class = col-sm-8>
+        <div class="card">
+          <img class="card-img-top" src={{ image_list[0][2] }} alt= "card number: {{ image_list[0][0] }} text: {{ image_list[0][1] }}">
+          <div class="card-body">
+            <p class="card-text">{{ image_list[0][0] }}:  {{ image_list[0][1] }}</p>
+          </div>
+        </div>
+            </div>
+    </center>
+        </div>
+{% endif %}
+
+  </div>
+{% endblock %}
+
+

@@ -1,0 +1,9 @@
+The Potshots application is written in Python, it requires python 3 to run.
+The site is hosted at potshots.pshome.me it may be easier to just visit it there.
+
+If you want to run potshots locally here are the instructions:
+1. install python 3 for mac os: https://www.python.org/downloads/macos/
+2. run: pip install -r requirements.txt
+3. in terminal: python3 desktop_app.py
+
+static data is scrubbed. Images are missing
